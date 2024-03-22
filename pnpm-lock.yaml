@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@ethsign/sign-protocol-evm':
+    specifier: 1.1.1
+    version: 1.1.1
   '@openzeppelin/contracts':
     specifier: 5.0.1
     version: 5.0.1
@@ -513,6 +516,13 @@ packages:
       '@ethersproject/properties': 5.7.0
       '@ethersproject/strings': 5.7.0
     dev: true
+
+  /@ethsign/sign-protocol-evm@1.1.1:
+    resolution: {integrity: sha512-ldbWofDEMY0v8l8EF/2aa0fV2mEyRXlm54it6PNwYkeKuNuosY/CWuBgK8P7tMb0K5HS1gOuplMRC6Ky3VoXPw==}
+    dependencies:
+      '@openzeppelin/contracts': 5.0.1
+      '@openzeppelin/contracts-upgradeable': 5.0.1(@openzeppelin/contracts@5.0.1)
+    dev: false
 
   /@fastify/busboy@2.1.0:
     resolution: {integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==}
