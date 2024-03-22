@@ -7,7 +7,7 @@ import { Attestation } from "@ethsign/sign-protocol-evm/src/models/Attestation.s
 import { DataLocation } from "@ethsign/sign-protocol-evm/src/models/DataLocation.sol";
 
 // [x] Have a way to link to the existing on-chain SP instance and schema
-// 2. Force both parties to confirm they've met each other IRL before making an attestation
+// [x] Force both parties to confirm they've met each other IRL before making an attestation
 
 contract ActuallyMetIRL is Ownable {
     ISP public spInstance;
