@@ -79,6 +79,13 @@ const config: HardhatUserConfig = {
             accounts: [process.env.PRIVATE_KEY!],
             saveDeployments: true,
             zksync: false
+        },
+        baseTestnet: {
+            chainId: 84532,
+            url: 'https://sepolia.base.org',
+            accounts: [process.env.PRIVATE_KEY!],
+            saveDeployments: true,
+            zksync: false
         }
     },
     etherscan: {
@@ -91,7 +98,8 @@ const config: HardhatUserConfig = {
             sepolia: process.env.ETHERSCAN_KEY!,
             mainnet: process.env.ETHERSCAN_KEY!,
             zetachainTestnet: process.env.ZETASCAN_API_KEY!,
-            zetachain: process.env.ZETASCAN_API_KEY!
+            zetachain: process.env.ZETASCAN_API_KEY!,
+            baseTestnet: process.env.BASE_SEPOLIA_API_KEY!
         },
         customChains: [
             {
@@ -108,6 +116,14 @@ const config: HardhatUserConfig = {
                 urls: {
                     apiURL: 'https://zetachain.blockscout.com/api',
                     browserURL: 'https://zetachain.blockscout.com/'
+                }
+            },
+            {
+                network: 'baseTestnet',
+                chainId: 84532,
+                urls: {
+                    apiURL: 'https://api-sepolia.basescan.org/api',
+                    browserURL: 'https://sepolia.basescan.org'
                 }
             }
         ]

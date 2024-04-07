@@ -16,7 +16,7 @@ contract ActuallyMetIRL is Ownable {
 
     error ConfirmationAddressMismatch();
 
-    event DidMetIRL(address partyA, address partyB, uint64 attestationId);
+    event DidMeetIRL(address partyA, address partyB, uint64 attestationId);
 
     constructor() Ownable(_msgSender()) { }
 
@@ -32,7 +32,7 @@ contract ActuallyMetIRL is Ownable {
         metIRLMapping[_msgSender()] = partyB;
     }
 
-    function confirmMetIRL(address partyA) external returns (uint64) {
+    function confirmMetIRL(address partyA, bytes memory data) external returns (uint64) {
         address partyB = _msgSender();
         if (metIRLMapping[partyA] == partyB) {
             // B has confirm A's claim of having met them IRL
@@ -50,10 +50,10 @@ contract ActuallyMetIRL is Ownable {
                 dataLocation: DataLocation.ONCHAIN,
                 revoked: false,
                 recipients: recipients,
-                data: ""
-            });
+                data: data // SignScan assumes this is from `abi.encode(...)`
+             });
             uint64 attestationId = spInstance.attest(a, "", "", "");
-            emit DidMetIRL(partyA, partyB, attestationId);
+            emit DidMeetIRL(partyA, partyB, attestationId);
             return attestationId;
         } else {
             revert ConfirmationAddressMismatch();
