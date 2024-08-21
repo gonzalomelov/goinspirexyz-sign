@@ -134,3 +134,5 @@ artifacts
 cache
 cache_hardhat
 typechain-types
+
+pnpm-lock.yaml
